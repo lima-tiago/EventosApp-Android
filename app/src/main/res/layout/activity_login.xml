@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    tools:context=".activities.LoginActivity">
+
+
+    <EditText
+        android:id="@+id/user_login_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Usuário"
+        android:paddingLeft="30dp"
+        android:textSize="28sp" />
+
+    <EditText
+        android:id="@+id/password_login_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/user_login_edittext"
+        android:layout_alignStart="@id/user_login_edittext"
+        android:layout_alignEnd="@id/user_login_edittext"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_edittext"
+        android:hint="Senha"
+        android:paddingLeft="30dp"
+        android:textSize="28sp" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_button"
+        android:layout_below="@id/password_login_edittext"
+        android:layout_marginTop="10dp"
+        android:layout_alignStart="@id/password_login_edittext"
+        android:layout_alignEnd="@id/password_login_edittext"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Login"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/do_not_have_account_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Ainda não possui conta?"
+        android:textColor="@android:color/black"
+        android:textSize="16sp" />
+
+</RelativeLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    tools:context=".activities.EventDetail"
+    android:padding="8dp">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/event_image_detail"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginBottom="10dp"
+                android:background="@android:color/holo_green_light" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/event_image_detail"
+                    android:background="@drawable/rounded_content_box"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/event_name_detail_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Nome do Evento"
+                        android:textColor="@android:color/black"
+                        android:textSize="35sp" />
+
+                    <TextView
+                        android:id="@+id/event_location_detail_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/event_name_detail_text_view"
+                        android:layout_marginTop="10dp"
+                        android:text="Local do Evento"
+                        android:textColor="@android:color/black"
+                        android:textSize="35sp" />
+
+                    <TextView
+                        android:id="@+id/event_time_detail_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/event_location_detail_text_view"
+                        android:layout_alignStart="@id/event_location_detail_text_view"
+                        android:layout_marginTop="10dp"
+                        android:text="Das 20:00 as 04:00"
+
+                        android:textColor="@android:color/black"
+                        android:textSize="35sp" />
+
+                    <TextView
+                        android:id="@+id/event_description_detail_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@id/event_time_detail_text_view"
+                        android:layout_alignStart="@id/event_time_detail_text_view"
+                        android:text="Descrição d evento aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                        android:textColor="@android:color/black"
+                        android:textSize="28sp" />
+
+                    <TextView
+                        android:id="@+id/event_creator_detail_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/event_description_detail_text_view"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="30dp"
+                        android:text="Criado por Tiago"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
