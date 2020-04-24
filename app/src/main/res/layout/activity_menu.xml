@@ -10,10 +10,8 @@
         android:id="@+id/event_list_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="150dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginHorizontal="30dp"
         android:background="@drawable/rounded_button"
         android:text="Lista de Eventos"
         android:textColor="@android:color/black"
@@ -27,9 +25,21 @@
         android:layout_marginTop="20dp"
         android:layout_alignStart="@id/event_list_button"
         android:layout_alignEnd="@id/event_list_button"
-        android:layout_gravity="center"
         android:background="@drawable/rounded_button"
         android:text="Lista de Usuários"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/sign_out_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginVertical="30dp"
+        android:layout_alignStart="@id/user_list_button"
+        android:layout_alignEnd="@id/user_list_button"
+        android:background="@drawable/rounded_button"
+        android:text="Sair"
         android:textColor="@android:color/black"
         android:textSize="30sp" />
 

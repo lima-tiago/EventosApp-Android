@@ -8,14 +8,14 @@
     tools:context=".activities.NewEvent">
 
     <RelativeLayout
-        android:id="@+id/content_box_image"
+        android:id="@+id/content_box_image_new_event"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_content_box">
 
         <ImageView
-            android:id="@+id/image_new_event"
+            android:id="@+id/event_image_new_event"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             />
@@ -25,10 +25,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_alignBottom="@id/image_new_event"
-            android:layout_alignTop="@id/image_new_event"
-            android:layout_alignStart="@id/image_new_event"
-            android:layout_alignEnd="@id/image_new_event"
+            android:layout_alignBottom="@id/event_image_new_event"
+            android:layout_alignTop="@id/event_image_new_event"
+            android:layout_alignStart="@id/event_image_new_event"
+            android:layout_alignEnd="@id/event_image_new_event"
             android:text="Selecione uma imagem"
             android:background="@android:color/transparent"/>
 
@@ -39,12 +39,12 @@
         android:layout_height="match_parent"
         android:background="@drawable/rounded_content_box"
 
-        android:layout_below="@+id/content_box_image"
+        android:layout_below="@+id/content_box_image_new_event"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
 
             android:orientation="vertical">
 
@@ -115,7 +115,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignTop="@id/lbl_event_begin_time"
                     android:layout_toEndOf="@id/lbl_event_begin_time"
-                    android:inputType="time"/>
+                    android:inputType="time"
+                    />
 
                 <TextView
                     android:id="@+id/lbl_event_end_time"
@@ -149,17 +150,18 @@
                     android:text="Local do Evento"
                     android:textSize="28sp" />
 
-                <EditText
-                    android:id="@+id/new_event_location_edittext"
+                <fragment
+                    android:id="@+id/new_event_location_fragment"
+                    android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/lbl_event_location" />
+                    android:layout_below="@+id/lbl_event_location"/>
 
                 <TextView
                     android:id="@+id/lbl_event_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/new_event_location_edittext"
+                    android:layout_below="@+id/new_event_location_fragment"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
@@ -190,11 +192,28 @@
         </LinearLayout>
     </ScrollView>
 
-
-    <ImageView
-        android:id="@+id/full_screen_image"
+    <ProgressBar
+        android:id="@+id/progress_bar_new_event_creation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+    <RelativeLayout
+        android:id="@+id/blurry_layout_new_event_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:background="#CC000000"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/full_screen_image_new_event"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+
+
 
 </RelativeLayout>

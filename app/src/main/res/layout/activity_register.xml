@@ -96,4 +96,14 @@
         android:textColor="@android:color/black"
         android:textSize="16sp" />
 
+
+    <ProgressBar
+        android:id="@+id/progress_bar_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+
+        />
+
 </RelativeLayout>

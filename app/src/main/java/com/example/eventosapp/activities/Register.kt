@@ -24,6 +24,7 @@ import java.util.*
 class Register : AppCompatActivity() {
     val GALLERY_REQUEST_CODE = 123
     var selectedPhotoUri = Uri.EMPTY
+    val TAG = "Register"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +68,7 @@ class Register : AppCompatActivity() {
                         launchImageCropper(uri)
                     }
                 } else {
-                    Log.d("Register", "falha ao selecionar a imagem")
+                    Log.d(TAG, "falha ao selecionar a imagem")
                 }
             }
 
@@ -80,7 +81,7 @@ class Register : AppCompatActivity() {
                         setImage(uri)
                     }
                 } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
-                    Log.d("Register", "${result.error}")
+                    Log.d(TAG, "${result.error}")
                 }
             }
         }
@@ -110,10 +111,12 @@ class Register : AppCompatActivity() {
     }
 
     private fun performRegister() {
+        progress_bar_register.visibility = View.VISIBLE
+        val username = user_register_edittext.text.toString()
         val email = email_register_edittext.text.toString()
         val password = password_register_edittext.text.toString()
 
-        if (email.isEmpty() || password.isEmpty()) {
+        if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
             Toast.makeText(
                 this,
                 "Porfavor, preencha todos os campos de email e senha,",
@@ -126,17 +129,18 @@ class Register : AppCompatActivity() {
             .addOnCompleteListener {
                 if (!it.isSuccessful) return@addOnCompleteListener
 
-                Log.d("Register", "Usuario criado com uid: ${it.result?.user?.uid}")
+                Log.d(TAG, "Usuario criado com uid: ${it.result?.user?.uid}")
                 Toast.makeText(
                     this,
                     "Email cadastrado com sucesso, dirija-se à tela de Login",
                     Toast.LENGTH_SHORT
                 ).show()
 
+                progress_bar_register.visibility = View.GONE
                 uploadImageToFirebaseStorage()
 
             }.addOnFailureListener {
-                Log.d("Register", "Falha ao criar usuario: ${it.message}")
+                Log.d(TAG, "Falha ao criar usuario: ${it.message}")
                 Toast.makeText(
                     this,
                     "Email não cadastrado, corrija o campo 'email' e tente novamente",
@@ -153,11 +157,11 @@ class Register : AppCompatActivity() {
 
         ref.putFile(selectedPhotoUri!!)
             .addOnSuccessListener {
-                Log.d("Register", "foto adicionada ao firebase com sucesso ${it.metadata?.path}")
+                Log.d(TAG, "foto adicionada ao firebase com sucesso ${it.metadata?.path}")
 
                 ref.downloadUrl.addOnSuccessListener {
                     it.toString()
-                    Log.d("Register", "Localização do arquivo: ${it}")
+                    Log.d(TAG, "Localização do arquivo: ${it}")
 
                     saveUserToFirebaseDatabase(it.toString())
                 }
@@ -166,13 +170,18 @@ class Register : AppCompatActivity() {
 
     private fun saveUserToFirebaseDatabase(profileImageUrl: String) {
         val uid = FirebaseAuth.getInstance().uid ?: ""
+        val username = user_register_edittext.text.toString()
+        val password = password_register_edittext.text.toString()
+        val email = email_register_edittext.text.toString()
+
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
-        val user:User = User(uid, user_register_edittext.text.toString(), profileImageUrl)
-        ref.setValue(user).addOnSuccessListener {
-            Log.d("Register", "Usuario salvo no banco de dados")
-            clearFields()
+        val user: User =
+            User(uid, username, password,email, profileImageUrl,"0")
 
+        ref.setValue(user).addOnSuccessListener {
+            Log.d(TAG, "Usuario salvo no banco de dados")
+            clearFields()
         }
     }
 }

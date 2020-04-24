@@ -17,14 +17,14 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/img_usuario"
+                android:id="@+id/user_image_cell"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:background="@android:color/holo_green_light" />
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/nome_usuario_text_view"
+            android:id="@+id/user_username_text_view_cell"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -46,13 +46,13 @@
             android:layout_toEndOf="@+id/card_img_usuario"
             android:layout_alignBottom="@id/card_img_usuario"
             android:background="@android:color/white"
-            android:text="Eventos Criados"
+            android:text="Eventos Criados:"
             android:textSize="20sp"
 
             />
 
         <TextView
-            android:id="@+id/qtd_eventos_criados_text_view"
+            android:id="@+id/user_num_events_created_text_view_cell"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/qtd_eventos_criados_label"
